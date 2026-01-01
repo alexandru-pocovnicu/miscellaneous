@@ -1,5 +1,4 @@
-function sumMix(x) {
-  
-  return x.reduce((acc,cur)=>acc+ Number(cur),0)
+function greet(){
+    return "hello world"
 }
-console.log(sumMix([1,"4"]));
+console.log(greet());
