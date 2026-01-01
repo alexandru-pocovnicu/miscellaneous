@@ -1,4 +1,1 @@
-function greet(){
-    return "hello world"
-}
-console.log(greet());
+const setAlarm = (employed, vacation) => employed && !vacation;
