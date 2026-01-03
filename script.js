@@ -1,9 +1,8 @@
-var min = function (list) {
-  return Math.min(...list);
+function stray(numbers) {
+  const sortedNumbers=numbers.sort()
+  const aStray=numbers.filter((element)=>element!==numbers[1])
   
-};
-
-var max = function (list) {
-  return Math.max(...list)
-};
-console.log(min([9,3,6,1]));
+  
+  return aStray[0]
+}
+console.log(stray([1,1,1,4]));
