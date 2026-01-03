@@ -1,8 +1,10 @@
-function stray(numbers) {
-  const sortedNumbers=numbers.sort()
-  const aStray=numbers.filter((element)=>element!==numbers[1])
-  
-  
-  return aStray[0]
+function updateLight(current) {
+  if(current==="green") {
+    return "yellow"} else if (
+        current==="yellow"
+    ){ return "red"
+
+    }
+return "green"
+    
 }
-console.log(stray([1,1,1,4]));
