@@ -1,4 +1,5 @@
-function correct(string) {
- return string.replaceAll("0","O").replaceAll("1","I").replaceAll("5","S")
+function otherAngle(a, b) {
+  return 180-(a+b)
 }
-console.log(correct("hell015;4105b"));
+console.log(otherAngle(15,25));
+
