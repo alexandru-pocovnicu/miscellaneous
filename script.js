@@ -1,12 +1,4 @@
-function countSheeps(sheep) {
-let sum=0
-for(let goat of sheep){
-
-    
-    if(goat===true){
-        sum =sum+1
-    }
+function correct(string) {
+ return string.replaceAll("0","O").replaceAll("1","I").replaceAll("5","S")
 }
-return sum
-}
-console.log(countSheeps([true,undefined, null, false, true]));
+console.log(correct("hell015;4105b"));
