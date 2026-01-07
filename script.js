@@ -1,10 +1,4 @@
 function century(year) {
-  if(year.length===2){
-    return 1
-  }
-  if(year.toString().slice(-2)==="00"){
-    return Number(year.toString().slice(0,-2));
-  }
-  return Number(year.toString().slice(0, -2))+1;
+ return Math.ceil(year/100)
 }
-console.log(century(201));
+console.log(century(2742));
