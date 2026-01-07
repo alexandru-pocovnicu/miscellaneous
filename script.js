@@ -1,5 +1,4 @@
-var isSquare = function (n) {
-    if(n<0)return false
-  return !Math.sqrt(n).toString().includes(".")
+String.prototype.isUpperCase = function () {
+  return this===this.toUpperCase()
 };
-console.log(5%1);
+console.log();
