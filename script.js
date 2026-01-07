@@ -1,4 +1,4 @@
-function goals(laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
-  return laLigaGoals+ copaDelReyGoals+ championsLeagueGoals;
+function move(position, roll) {
+  return position+roll*2
 }
-console.log(goals(2,4,6));
+console.log(move(3,6));
