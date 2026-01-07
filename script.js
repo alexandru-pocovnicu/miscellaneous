@@ -1,4 +1,8 @@
-function move(position, roll) {
-  return position+roll*2
+function powersOfTwo(n) {
+  let list=[]
+ for(let i=0;i<=n;i++){
+    list.push(Math.pow(2,i))
+ }
+  return list
 }
-console.log(move(3,6));
+console.log(powersOfTwo(2));
