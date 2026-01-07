@@ -1,8 +1,5 @@
-function powersOfTwo(n) {
-  let list=[]
- for(let i=0;i<=n;i++){
-    list.push(Math.pow(2,i))
- }
-  return list
-}
-console.log(powersOfTwo(2));
+var isSquare = function (n) {
+    if(n<0)return false
+  return !Math.sqrt(n).toString().includes(".")
+};
+console.log(5%1);
