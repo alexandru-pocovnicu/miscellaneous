@@ -1,7 +1,4 @@
-function hoopCount(n) {
- 
-  return n >= 10
-    ? "Great, now move on to tricks"
-    : "Keep at it until you get it"; 
+function goals(laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+  return laLigaGoals+ copaDelReyGoals+ championsLeagueGoals;
 }
-console.log(hoopCount(1));
+console.log(goals(2,4,6));
