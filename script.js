@@ -1,13 +1,3 @@
-let arr = [1, 2];
+let arr = [1, 2,"k"];
 
-function larger(x){
-    let arri=[]
-    for(let i=0;i<x.length;i++){
-        if(x[i]>1){
-            arri.push(x[i])
-        }
-    }
-    return arri
-}
-console.log((larger(arr)));
-console.log(arr.filter((x)=>x>1));
+console.log(arr.reduce((sum, x) => sum + x, 1));
