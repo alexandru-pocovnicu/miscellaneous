@@ -1,5 +1,3 @@
-function findDifference(a, b) {
-  const volumeA=a.reduce((acc,cur)=>acc*cur,1)
-  const volumeB = b.reduce((acc, cur) => acc * cur, 1);
-  return Math.abs(volumeA-volumeB)
+function greet(name) {
+ return `Hello, ${name} how are you doing today?`
 }
