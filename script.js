@@ -1,4 +1,4 @@
-const arrowFunc = function(arr) {
-  return arr.map((number) => String.fromCharCode(number)).join(""); //Complete this function
+function simpleMultiplication(number) {
+  return number%2===0 ? number*8: number*9
 }
-console.log(arrowFunc([189, 43, 190, 61]));
+console.log(simpleMultiplication(7.7));
