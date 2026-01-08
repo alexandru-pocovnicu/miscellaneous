@@ -1,4 +1,4 @@
-function makeNegative(num) {
-  return num<0 ? num: num*(-1)
+function getAge(inputString) {
+  return Number(inputString.slice(0,1))
 }
-console.log(makeNegative(-1,4));
+console.log(typeof(getAge("4 years old")));
