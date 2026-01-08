@@ -1,5 +1,4 @@
-function doubleChar(str) {
-  //const arr=str.split("")
-  return str.split("").map(x=>x.repeat(2)).join("")
+function noSpace(x) {
+  return x.split(" ").join("")
 }
-console.log(doubleChar("Hello"));
+console.log(noSpace("8 j 8   mBliB8g  imjB8B8  jl  B"));
