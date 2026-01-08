@@ -1,4 +1,4 @@
-function simpleMultiplication(number) {
-  return number%2===0 ? number*8: number*9
+function makeNegative(num) {
+  return num<0 ? num: num*(-1)
 }
-console.log(simpleMultiplication(7.7));
+console.log(makeNegative(-1,4));
