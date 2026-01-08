@@ -1,4 +1,11 @@
-function noSpace(x) {
-  return x.split(" ").join("")
+function finalGrade(exam, projects) {
+ return exam > 90 || projects > 10
+   ? 100
+   : exam > 75 && projects >= 5
+   ? 90
+   : exam > 50 && projects >= 2
+   ? 75
+   : 0;
+
+
 }
-console.log(noSpace("8 j 8   mBliB8g  imjB8B8  jl  B"));
