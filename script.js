@@ -1,4 +1,11 @@
-var templateStrings = function (noun, adjective) {
- return `${noun} are ${adjective}`
-};
-console.log(templateStrings("you ","frozen"));
+function between(a, b) {
+  let arr=[]
+  for(i=a;i<=b;i++){
+    arr.push(i)
+  }
+  return arr
+}
+console.log(between(1,4));
+
+
+
