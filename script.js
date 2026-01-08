@@ -1,4 +1,4 @@
-let sortArray = function (value) {
-  return value.split("").sort((a,b)=>a-b).join("")
-};
-console.log(sortArray("1964"));
+const arrowFunc = function(arr) {
+  return arr.map((number) => String.fromCharCode(number)).join(""); //Complete this function
+}
+console.log(arrowFunc([189, 43, 190, 61]));
