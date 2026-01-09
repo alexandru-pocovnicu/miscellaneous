@@ -1,11 +1,5 @@
-function finalGrade(exam, projects) {
- return exam > 90 || projects > 10
-   ? 100
-   : exam > 75 && projects >= 5
-   ? 90
-   : exam > 50 && projects >= 2
-   ? 75
-   : 0;
+function friend(friends){
 
-
+return friends.filter(x=>x.length===4)
 }
+console.log(friend(["Ryan", "Kieran", "Jason", "Yous"]));
