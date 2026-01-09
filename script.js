@@ -1,5 +1,6 @@
-function friend(friends){
-
-return friends.filter(x=>x.length===4)
+function arithmetic(a, b, operator){
+  return operator==="add" ? a+b 
+  : operator==="subtract" ? a-b 
+  : operator==="multiply" ? a*b : a/b
+  //: operator==="divide" ? a/b 
 }
-console.log(friend(["Ryan", "Kieran", "Jason", "Yous"]));
