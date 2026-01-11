@@ -1,5 +1,6 @@
-String.prototype.toAlternatingCase = function () {
-  return this.split("").map(char=>char===char
-    .toUpperCase() ? char.toLowerCase():char.toUpperCase()).join("")
-};
-console.log("aSd".toAlternatingCase());
+class Kata {
+  static getVolumeOfCuboid(length, width, height) {
+   return length*width*height
+  }
+}
+console.log(Kata.getVolumeOfCuboid(2,2,2));
