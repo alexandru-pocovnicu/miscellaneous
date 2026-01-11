@@ -1,4 +1,5 @@
-function removeExclamationMarks(s) {
-  return s.replaceAll("!","")
+function gimme(triplet) {
+  const sortedTriplet= [...triplet].sort((a,b)=>a-b)
+  return triplet.indexOf(sortedTriplet[1])
 }
-console.log(removeExclamationMarks("343!ggg"));
+console.log(gimme([5,9,1]));
