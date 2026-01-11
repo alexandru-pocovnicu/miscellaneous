@@ -1,6 +1,8 @@
-class Kata {
-  static getVolumeOfCuboid(length, width, height) {
-   return length*width*height
+const reverseSeq = (n) => {
+  let arrInt=[];
+  for(let i=n;i>=1;i--){
+    arrInt.push(i)
   }
-}
-console.log(Kata.getVolumeOfCuboid(2,2,2));
+  return arrInt
+};
+console.log(reverseSeq(5));
