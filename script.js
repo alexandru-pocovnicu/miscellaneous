@@ -1,5 +1,6 @@
-function gimme(triplet) {
-  const sortedTriplet= [...triplet].sort((a,b)=>a-b)
-  return triplet.indexOf(sortedTriplet[1])
+function findNextSquare(sq) {
+ 
+if(!Number.isInteger(Math.sqrt(sq))) return -1
+return Math.pow((Math.sqrt(sq) + 1),2) ;
 }
-console.log(gimme([5,9,1]));
+console.log(findNextSquare(16));
