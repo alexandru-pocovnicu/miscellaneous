@@ -1,3 +1,5 @@
-function greet(name, owner) {
-  return name === owner ? "Hello boss" : "Hello guest";
+function findShort(s) {
+  
+  return Math.min(...s.split(" ").map((s) => s.length));
 }
+console.log(findShort("bitcoin take over the world maybe who knows perhaps"));
