@@ -1,6 +1,3 @@
-function findNextSquare(sq) {
- 
-if(!Number.isInteger(Math.sqrt(sq))) return -1
-return Math.pow((Math.sqrt(sq) + 1),2) ;
+function saleHotdogs(n) {
+  return n < 5 ? n * 100 : n < 10 ? n * 95 : n * 90;
 }
-console.log(findNextSquare(16));
