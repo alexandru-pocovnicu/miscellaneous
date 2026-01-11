@@ -1,9 +1,3 @@
-function nameShuffler(str) {
-let strToArr= str.split(" ")
-let str0=strToArr[0]
-console.log(str0);
-
-strToArr.shift(strToArr[0])
-return strToArr.join()+" "+str0
+function greet(name, owner) {
+  return name === owner ? "Hello boss" : "Hello guest";
 }
-console.log(nameShuffler("asd dff"));
