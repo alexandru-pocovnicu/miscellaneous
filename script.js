@@ -1,6 +1,5 @@
-function sumStr(a, b) {
-  console.log(typeof Number(a));
-  
-  return (Number(a)+Number(b)).toString()
-}
-console.log(sumStr("4", "5"));
+String.prototype.toAlternatingCase = function () {
+  return this.split("").map(char=>char===char
+    .toUpperCase() ? char.toLowerCase():char.toUpperCase()).join("")
+};
+console.log("aSd".toAlternatingCase());
