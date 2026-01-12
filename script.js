@@ -1,3 +1,7 @@
-function grow(x) {
-  return x.reduce((acc,cur)=>acc*cur,1)
-}
+const grow = (x) => {
+  let res = 1;
+  for (let i = 0; i < x.length; i++) {
+    res *= x[i];
+  }
+  return res;
+};
