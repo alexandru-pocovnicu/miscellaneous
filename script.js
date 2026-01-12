@@ -1,11 +1,5 @@
-var capitals = function (word) {
-  const arr=word.split('')
-  let arrOfIndexes=[]
-  arr.forEach((value,index)=>{
-    if(value===value.toUpperCase()){
-      arrOfIndexes.push(index)
-    }
-  })
-  return arrOfIndexes
-};
-console.log(capitals("CodEWaRs"));
+function filterString(value) {
+  
+  return +value.match(/\d/g).join("")
+}
+console.log(filterString("a1b2c3"));
