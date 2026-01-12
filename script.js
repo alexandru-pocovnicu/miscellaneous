@@ -1,5 +1,9 @@
-function filterString(value) {
-  
-  return +value.match(/\d/g).join("")
+function getNames(data) {
+  return data.map((item) => item.name);
 }
-console.log(filterString("a1b2c3"));
+var data= [
+  { name: "Joe", age: 20 },
+  { name: "Bill", age: 30 },
+  { name: "Kate", age: 23 },
+];
+console.log(getNames(data));
