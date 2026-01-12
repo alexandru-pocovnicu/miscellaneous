@@ -1,6 +1,11 @@
-function squareSum(numbers) {
-return numbers.length === 0
-  ? 0
-  : numbers.map((x) => x * x).reduce((acc, curr) => acc + curr);
-}
-console.log(squareSum([1,2,2]));
+var capitals = function (word) {
+  const arr=word.split('')
+  let arrOfIndexes=[]
+  arr.forEach((value,index)=>{
+    if(value===value.toUpperCase()){
+      arrOfIndexes.push(index)
+    }
+  })
+  return arrOfIndexes
+};
+console.log(capitals("CodEWaRs"));
