@@ -1,4 +1,4 @@
-function enough(cap, on, wait) {
-  
-  return cap - on >= wait ? 0 : Math.abs(cap - on - wait);
+function unusualFive() {
+  let arr=["a","s","d","w"]
+  return arr.length;
 }
