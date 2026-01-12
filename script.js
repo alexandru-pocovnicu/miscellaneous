@@ -1,5 +1,9 @@
-function findShort(s) {
-  
-  return Math.min(...s.split(" ").map((s) => s.length));
+function SeriesSum(n) {
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    sum += 1/(1 + 3 * i);
+  }
+
+  return sum.toFixed(2);
 }
-console.log(findShort("bitcoin take over the world maybe who knows perhaps"));
+console.log(SeriesSum(3));
