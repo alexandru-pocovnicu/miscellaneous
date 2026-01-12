@@ -1,7 +1,7 @@
-const grow = (x) => {
-  let res = 1;
-  for (let i = 0; i < x.length; i++) {
-    res *= x[i];
-  }
-  return res;
-};
+function sumDigits(number) {
+  return String(Math.abs(number))
+    .split("")
+    .map((y) => Number(y))
+    .reduce((acc, cur) => acc + cur);
+}
+console.log(sumDigits(-45));
