@@ -1,11 +1,7 @@
-function printerError(s) {
- const denominator=s.length
- let numerator=0
-for( let char of s){
-  if(char >="n" && char<="z"){
-    numerator +=1
-  } 
+function getMiddle(s) {
+ const firstSubS=s.substring(0,s.length / 2);
+ const secondSubS = s.substring((s.length / 2));
+  if(s.length%2===0)return firstSubS[firstSubS.length-1].concat(secondSubS[0]) 
+    return secondSubS[0]  
 }
- return `${numerator}/${denominator}`
-}
-console.log(printerError("fffsss"));
+console.log(getMiddle("bdgym"));
