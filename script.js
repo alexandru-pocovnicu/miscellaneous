@@ -1,3 +1,4 @@
-function mouthSize(animal) {
-  return animal.toLowerCase() == "alligator" ? "small" : "wide";
+function addFive(num) {
+  var total = num + 5;
+  return total;
 }
