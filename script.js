@@ -1,7 +1,8 @@
-function sumDigits(number) {
-  return String(Math.abs(number))
-    .split("")
-    .map((y) => Number(y))
-    .reduce((acc, cur) => acc + cur);
+function dnaStrand(dna) {
+return [...dna]
+  .map((char) =>
+    char === "T" ? "A" : char === "A" ? "T" : char === "C" ? "G" : "C"
+  )
+  .join("");
 }
-console.log(sumDigits(-45));
+console.log(dnaStrand("CTAG"));
