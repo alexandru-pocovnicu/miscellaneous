@@ -1,9 +1,4 @@
-function reverseLetter(str) {
-  
-  return str
-    .split("")
-    .reverse()
-    .filter((char) => /[a-z]/i.test(char))
-    .join("");
+function addLength(str) {
+return str.split(" ").map(element=>element+" "+element.length)
 }
-console.log(reverseLetter("hd64hd;"));
+console.log(addLength("apple ban"));
