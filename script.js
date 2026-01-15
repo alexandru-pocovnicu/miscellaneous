@@ -1,8 +1,4 @@
-function dnaStrand(dna) {
-return [...dna]
-  .map((char) =>
-    char === "T" ? "A" : char === "A" ? "T" : char === "C" ? "G" : "C"
-  )
-  .join("");
+function getChar(c) {
+  return String.fromCodePoint(c);
 }
-console.log(dnaStrand("CTAG"));
+console.log(getChar(65)); // Proper Unicode support
