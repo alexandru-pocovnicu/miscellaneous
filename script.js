@@ -1,6 +1,9 @@
-function isTriangle(a, b, c) {
+function reverseLetter(str) {
   
-  if(Math.max(a,b,c)>=(a+b+c)/2)return false
-  return true
+  return str
+    .split("")
+    .reverse()
+    .filter((char) => /[a-z]/i.test(char))
+    .join("");
 }
-console.log(isTriangle(7,9,5));
+console.log(reverseLetter("hd64hd;"));
