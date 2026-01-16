@@ -1,4 +1,5 @@
-function addLength(str) {
-return str.split(" ").map(element=>element+" "+element.length)
-}
-console.log(addLength("apple ban"));
+const binaryArrayToNumber = (arr) => {
+ const noComa=arr.join('')
+ return parseInt(noComa,2)
+};
+console.log(binaryArrayToNumber([0, 0, 0, 1]));
