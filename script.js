@@ -1,5 +1,4 @@
-const binaryArrayToNumber = (arr) => {
- const noComa=arr.join('')
- return parseInt(noComa,2)
-};
-console.log(binaryArrayToNumber([0, 0, 0, 1]));
+function remove(string) {
+  if()return 
+  return string[string.length-1]==="!" ? string.substring(0,string.length-1) : string
+}
