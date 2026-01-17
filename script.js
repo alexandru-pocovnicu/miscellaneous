@@ -1,16 +1,4 @@
-function twoSort(s) {
-  return s.sort()[0].split('').map(element=>element+"***").join("").slice(0,-3)
+function stringClean(s) {
+  return s.split("").filter((element) => !element.match(/\d+/)).join("");
 }
-console.log(
-  twoSort([
-    "take",
-    "over",
-    "the",
-    "world",
-    "maybe",
-    "who",
-    "knows",
-    "perhaps",
-    "bitcoin"
-  ]),
-);
+console.log(stringClean("(E3at m2e2!!)"));
