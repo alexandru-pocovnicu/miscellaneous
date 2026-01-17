@@ -1,9 +1,7 @@
-function findMultiples(integer, limit) {
-  const listLength=limit/integer
-  let arr=[]
-  for(let i=1;i<=listLength;i++){
-    arr.push(integer*i)
-  }
-  return arr
+function onlyOne(...flags) {
+if(flags.length===0)return false
+return (
+  flags.indexOf(true) !== -1 && flags.indexOf(true) === flags.lastIndexOf(true)
+);
 }
-console.log(findMultiples(5,25));
+console.log(onlyOne([]));
