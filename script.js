@@ -1,4 +1,3 @@
-function remove(string) {
-  if()return 
-  return string[string.length-1]==="!" ? string.substring(0,string.length-1) : string
-}
+const areaOrPerimeter = function (l, w) {
+  return l===w ? l*w : 2*(l+w)
+};
