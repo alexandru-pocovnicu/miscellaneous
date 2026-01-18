@@ -1,6 +1,4 @@
-function reverseWords(str) {
-  const arr= str.split(" ");
-  const reversed=arr.map(element=>element.split('').reverse().join(''))
-  return reversed.join(' ')
+function validatePIN(pin) {
+  return /^\d+$/.test(pin) && (pin.split('').length===4 ||pin.split('').length===6) ;
 }
-console.log(reverseWords("apple pear"));
+console.log(validatePIN("12345i"));
