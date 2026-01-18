@@ -1,4 +1,6 @@
-function stringClean(s) {
-  return s.split("").filter((element) => !element.match(/\d+/)).join("");
+function reverseWords(str) {
+  const arr= str.split(" ");
+  const reversed=arr.map(element=>element.split('').reverse().join(''))
+  return reversed.join(' ')
 }
-console.log(stringClean("(E3at m2e2!!)"));
+console.log(reverseWords("apple pear"));
