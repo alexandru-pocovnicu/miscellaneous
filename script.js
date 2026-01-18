@@ -1,22 +1,14 @@
-function getLength(arr){
-  //return length of arr
-  return arr.length
+function add(num1, num2) {
+  let arr1 = num1.toString();
+  let arr2 = num2.toString();
+  const longerLength = Math.max(arr1.length, arr2.length);
+  
+ arr1 = arr1.padStart(longerLength, "0");
+ arr2 = arr2.padStart(longerLength, "0");
+  let sum=[]
+  for (let i = 0; i < longerLength; i++) {
+    sum.push(+arr1[i] + +arr2[i]);
+  }
+  return sum.join('')
 }
-function getFirst(arr){
-  //return the first element of arr
-  return arr[0]
-}
-function getLast(arr){
-  //return the last element of arr
-  return arr[arr.length-1]
-}
-function pushElement(arr){
-  var el=1;
-  //push el to arr
-  arr.push(el)
-  return arr
-}
-function popElement(arr){
-  //pop an element from arr
-  arr.pop()
-  return arr}
+console.log(add(2, 11));
