@@ -1,4 +1,4 @@
-function findAverage(array) {
-  // your code here
-  return array.length===0 ? 0 : array.reduce((acc,cur)=>acc+cur)/array.length
+function replace(s) {
+  //coding and coding....
+   return s.replaceAll(/[aeiouAEIOU]/g, "!");
 }
