@@ -1,3 +1,3 @@
-function stringToArray(string) {
-  return string.split(" ");
-}
+var OrderPeople = function (people) {
+  return [...people].sort((a,b) => a.age-b.age);
+};
