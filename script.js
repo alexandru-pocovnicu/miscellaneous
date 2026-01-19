@@ -1,7 +1,4 @@
-function oddOrEven(array) {
-  return array.length === 0
-    ? "even"
-    : array.reduce((acc, curr) => acc + curr) % 2 === 0
-      ? "even"
-      : "odd";
+function arrayPlusArray(arr1, arr2) {
+  return arr1.concat(arr2).reduce((a,s)=>a+s); //something went wrong
 }
+console.log(arrayPlusArray([1, 2, 3], [4, 5, 6]));
