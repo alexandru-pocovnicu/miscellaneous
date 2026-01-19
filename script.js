@@ -1,8 +1,6 @@
-function createArray(number) {
-  const newArray = [];
-  for (let counter = 1; counter <= number;counter++ ) {
-    newArray.push(counter);
-  }
-  return newArray;
+function minMax(arr) {
+  arr.sort((a,b)=>a-b)
+  return [arr.at(0),arr.at(arr.length-1)]
 }
-console.log(createArray(2));
+console.log(minMax([1, 2, 3,98, 4, 5]));
+
