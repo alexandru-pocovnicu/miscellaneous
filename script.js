@@ -1,6 +1,7 @@
-function minMax(arr) {
-  arr.sort((a,b)=>a-b)
-  return [arr.at(0),arr.at(arr.length-1)]
+function oddOrEven(array) {
+  return array.length === 0
+    ? "even"
+    : array.reduce((acc, curr) => acc + curr) % 2 === 0
+      ? "even"
+      : "odd";
 }
-console.log(minMax([1, 2, 3,98, 4, 5]));
-
