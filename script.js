@@ -1,4 +1,10 @@
-function abbrevName(name) {
-  return name.split(" ").map(element=>element[0]+element[element.length-1]);
+function gordon(a) {
+  
+  return a.split(" ").map(
+    (element) =>
+      element
+        .toUpperCase()
+        .replaceAll(/[aA]/g, "@")
+        .replaceAll(/[eiouEIOU]/g, "*") + "!!!!").join(" ");
 }
-console.log(abbrevName("Sam Harris"));
+console.log(gordon("What feck damn cake"));
