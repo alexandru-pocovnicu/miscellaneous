@@ -1,3 +1,3 @@
-function reverse(string) {
-  return string.split(" ").reverse().join(" ");
+function problem(x) {
+  return typeof x === "string" ? "Error" : x * 50 + 6;
 }
