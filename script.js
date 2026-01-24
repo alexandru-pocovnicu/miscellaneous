@@ -1,16 +1,8 @@
-function nbDig(n, d) {
-  let k=[]
- for(let i=0;i<=n;i++){
-  k.push(i*i)
- }
- let count=0
-
- const arrOfK= k.join("").split("")
- for(let i of arrOfK){
-  if(i==d){
-    count +=1
-  }
- }
- return count
+// return masked string
+function maskify(cc) {
+  const newStr=cc.substring(0,cc.length-4)
+  const mapped=[...newStr].map(x=>x.replace(x,"#")).join("")
+  
+  return mapped.concat(cc.substring( cc.length - 4));
 }
-console.log(nbDig(10,1));
+console.log(maskify("4556364607935616"));
