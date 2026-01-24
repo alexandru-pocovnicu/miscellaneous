@@ -1,8 +1,8 @@
-// return masked string
-function maskify(cc) {
-  const newStr=cc.substring(0,cc.length-4)
-  const mapped=[...newStr].map(x=>x.replace(x,"#")).join("")
-  
-  return mapped.concat(cc.substring( cc.length - 4));
+function accum(s) {
+const arr=s.split("")
+
+const repeatElement= arr.map((x,index)=>x.repeat(index+1))
+const upperCase=repeatElement.map(x=>x.slice(0,1).toUpperCase()+x.slice(1).toLowerCase())
+return upperCase.join("-")
 }
-console.log(maskify("4556364607935616"));
+console.log(accum("ZpglnRxqenU"));
