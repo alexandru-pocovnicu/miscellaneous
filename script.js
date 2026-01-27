@@ -1,11 +1,7 @@
-function firstNonConsecutive(arr) {
-    if(arr.length<2) return null
-    let num=0
-    for(let i=1;i<arr.length;i++){
-        if(arr[i]!==arr[i-1]+1){
-           return num=arr[i]
-        }
-    }
-    return null
+function likes(names) {
+  return names.length===0 ? "no one likes this"
+  : names.length===1 ? `${names[0]} likes this`
+  : names.length===2 ? `${names[0]} and ${names[1]} like this`
+  :names.length===3 ? `${names[0]}, ${names[1]} and ${names[2]} like this`
+  : `${names[0]}, ${names[1]} and ${names.length-2} others like this`
 }
-console.log(firstNonConsecutive([1,2,3,4,6,7,8]));
