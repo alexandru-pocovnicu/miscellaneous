@@ -1,7 +1,14 @@
-function likes(names) {
-  return names.length===0 ? "no one likes this"
-  : names.length===1 ? `${names[0]} likes this`
-  : names.length===2 ? `${names[0]} and ${names[1]} like this`
-  :names.length===3 ? `${names[0]}, ${names[1]} and ${names[2]} like this`
-  : `${names[0]}, ${names[1]} and ${names.length-2} others like this`
+function fakeBin(x) {
+   let xArr=x.split("")
+   let arr=[]
+  
+   for(let i of xArr){}
+    if(i<5){
+      xArr.splice(i,1,"0")
+      if (i > 5) {
+        xArr.splice(i, 1, "1");
+      }
+    }
+    return xArr
 }
+console.log(fakeBin("12345678"));
