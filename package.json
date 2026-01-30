@@ -4,7 +4,7 @@
   "description": "this is a place where i will be trying things, and doing katas",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
