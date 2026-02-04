@@ -1,14 +1,4 @@
-function solve(s) {
-  let upper = 0;
-  let lower = 0;
-  const arrS = s.split("");
-  for (let elem of arrS) {
-    if (elem === elem.toUpperCase()) {
-      upper += 1;
-    } else {
-      lower += 1;
-    }
-  }
-  return upper > lower ? s.toUpperCase() : s.toLowerCase();
+function addBinary(a, b) {
+  return (a+b).toString(2)
 }
-console.log(solve("COdE"));
+console.log(addBinary(1,1));
