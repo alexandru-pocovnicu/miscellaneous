@@ -1,4 +1,4 @@
-function sortByLength(array) {
-  return array.sort((a, b) => a.length - b.length);
+function printArray(array) {
+  return (array.join(","))
 }
-console.log(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]));
+console.log(printArray([2.0, 4.2, 5.1, 2.2]));
