@@ -1,4 +1,3 @@
-function printArray(array) {
-  return (array.join(","))
+function animal(obj) {
+  return `This ${obj.color} ${obj.name} has ${obj.legs} legs `
 }
-console.log(printArray([2.0, 4.2, 5.1, 2.2]));
