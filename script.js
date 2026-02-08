@@ -1,5 +1,3 @@
-function position(letter) {
-  let alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
-  return `Position of alphabet: ${alphabet.indexOf(letter) + 1}`;
+function spEng(sentence) {
+  return sentence.toLowerCase().includes("english");
 }
-console.log(position("k"));
