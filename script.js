@@ -1,8 +1,4 @@
-function remove(string) {
-  let arr = string.split("");
-  while (arr[arr.length - 1] === "!") {
-    arr.pop();
-  }
-  return arr.join("");
+function descendingOrder(n) {
+  return +([...String(n)].sort((a, b) => b - a)).join("");
 }
-console.log(remove("hi!hi!!!!"));
+console.log(descendingOrder(48538));
