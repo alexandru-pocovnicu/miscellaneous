@@ -1,5 +1,16 @@
-
-function perimeterSequence(a,n) {
-  return n*(4*a)
+function getSum(a, b) {
+  if(a===b)return a
+  let sum=0
+  if(a>b){
+    for(let i=b;i<=a;i++){
+      sum+=i
+    }
+  }
+  if (a <b) {
+    for (let i = a; i <= b; i++) {
+      sum += i;
+    }
+  }
+  return sum
 }
-console.log(perimeterSequence(1,3));
+console.log(getSum(-1,2));
