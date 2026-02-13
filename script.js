@@ -1,4 +1,8 @@
-function squareDigits(num) {
-  return +[...String(num)].map((x)=>x**2).join("")
+function explode(x) {
+  
+ if (x[0]===+x[0] && x[1]===Number(x[1]))return new Array(x[0] + x[1]).fill([x[0],x[1]]); 
+if (x[0] !== +x[0] && x[1] === Number(x[1]))return new Array(x[1]).fill([x[0], x[1]]); 
+if (x[0] === +x[0] && x[1] !== Number(x[1]))return new Array(x[0]).fill([x[0], x[1]]);
+  return "Void"
 }
-console.log(squareDigits(3212));
+console.log(explode(["k",3]));
