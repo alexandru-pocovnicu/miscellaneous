@@ -1,8 +1,3 @@
-function explode(x) {
-  
- if (x[0]===+x[0] && x[1]===Number(x[1]))return new Array(x[0] + x[1]).fill([x[0],x[1]]); 
-if (x[0] !== +x[0] && x[1] === Number(x[1]))return new Array(x[1]).fill([x[0], x[1]]); 
-if (x[0] === +x[0] && x[1] !== Number(x[1]))return new Array(x[0]).fill([x[0], x[1]]);
-  return "Void"
+function sumSquares(array) {
+return array.map(x=>x**2).reduce((a,b)=>a+b)
 }
-console.log(explode(["k",3]));
