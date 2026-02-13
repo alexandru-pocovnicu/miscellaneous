@@ -1,16 +1,4 @@
-function getSum(a, b) {
-  if(a===b)return a
-  let sum=0
-  if(a>b){
-    for(let i=b;i<=a;i++){
-      sum+=i
-    }
-  }
-  if (a <b) {
-    for (let i = a; i <= b; i++) {
-      sum += i;
-    }
-  }
-  return sum
+function filter_list(l) {
+  return l.filter(el=>typeof el==="number")
 }
-console.log(getSum(-1,2));
+console.log(filter_list([1, 2, "a", "b"]));
