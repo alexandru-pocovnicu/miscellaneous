@@ -1,4 +1,4 @@
-function filter_list(l) {
-  return l.filter(el=>typeof el==="number")
+function squareDigits(num) {
+  return +[...String(num)].map((x)=>x**2).join("")
 }
-console.log(filter_list([1, 2, "a", "b"]));
+console.log(squareDigits(3212));
