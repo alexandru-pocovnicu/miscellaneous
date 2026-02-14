@@ -1,5 +1,7 @@
-function toFreud(string) {
-  let arr = string.split(" ");
-  return string.length === 0 ? "" : arr.map((x) => (x = "sex")).join(" ");
+function slope(points) {
+ 
+  let slope= (points[3]-points[1])/(points[2]-points[0])
+  return points[2] - points[0]===0? "undefined":String(slope)
 }
-console.log(toFreud("This is a test"));
+console.log(slope([-10, 6, -10, 3]));
+
