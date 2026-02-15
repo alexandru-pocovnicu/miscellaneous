@@ -1,4 +1,4 @@
-function digitize(n) {
-  return [...String(n)].reverse().map(x=>+x)
+function contamination(text, char) {
+  return !text || !char? "":Array(text.length).fill(char).join("")
 }
-console.log(digitize(35231));
+console.log(contamination("cty","r"));
