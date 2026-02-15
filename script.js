@@ -1,5 +1,15 @@
-const binaryArrayToNumber = (arr) => {
-  // your code
-  return arr.toString(2)
-};
-console.log(binaryArrayToNumber([0, 0, 1, 0]));
+function duckDuckGoose(players, position) {
+  return players[(position - 1) % players.length].name;
+}
+console.log(duckDuckGoose([
+   { name: 'a' },
+  { name: 'b' },
+   { name: 'c' },
+   { name: 'd' },
+   { name: 'c' },
+   { name: 'e' },
+   { name: 'f' },
+   { name: 'g' },
+   { name: 'h' },
+   { name: 'z' }
+], 12));
