@@ -1,6 +1,5 @@
-function reverseWords(str) {
-  return str.split(" ").reverse().join(" ")
-}
-console.log(
-  reverseWords("The greatest victory is that which requires no battle"),
-);
+const binaryArrayToNumber = (arr) => {
+  // your code
+  return arr.toString(2)
+};
+console.log(binaryArrayToNumber([0, 0, 1, 0]));
