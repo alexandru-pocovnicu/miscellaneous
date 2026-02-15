@@ -1,7 +1,11 @@
-function slope(points) {
- 
-  let slope= (points[3]-points[1])/(points[2]-points[0])
-  return points[2] - points[0]===0? "undefined":String(slope)
+function sameCase(a, b) {
+  let charA=/^[a-zA-Z]$/.test(a) 
+  let charB = /^[a-zA-Z]$/.test(b); 
+  if(charA===false || charB===false){
+    return -1
+  }
+  let caseA=a===a.toUpperCase()
+  let caseB = b === b.toUpperCase();
+  return caseA===caseB ? 1:0;
 }
-console.log(slope([-10, 6, -10, 3]));
-
+console.log(sameCase("d",1));
