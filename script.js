@@ -1,4 +1,6 @@
-function contamination(text, char) {
-  return !text || !char? "":Array(text.length).fill(char).join("")
+function reverseWords(str) {
+  return str.split(" ").reverse().join(" ")
 }
-console.log(contamination("cty","r"));
+console.log(
+  reverseWords("The greatest victory is that which requires no battle"),
+);
