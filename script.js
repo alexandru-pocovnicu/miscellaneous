@@ -1,15 +1,4 @@
-function duckDuckGoose(players, position) {
-  return players[(position - 1) % players.length].name;
+function shortenToDate(longDate) {
+  return longDate.slice(0, longDate.indexOf(","));
 }
-console.log(duckDuckGoose([
-   { name: 'a' },
-  { name: 'b' },
-   { name: 'c' },
-   { name: 'd' },
-   { name: 'c' },
-   { name: 'e' },
-   { name: 'f' },
-   { name: 'g' },
-   { name: 'h' },
-   { name: 'z' }
-], 12));
+console.log(shortenToDate("Friday May 2, 7pm"));
