@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Scope & Identifier Resolution</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .presentation {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        max-width: 900px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .slide {
+        display: none;
+        padding: 60px 40px;
+        min-height: 600px;
+        animation: slideIn 0.5s ease-in;
+      }
+
+      .slide.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      h1 {
+        color: #667eea;
+        font-size: 3em;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: #667eea;
+        font-size: 2.2em;
+        margin-bottom: 30px;
+      }
+
+      p {
+        color: #333;
+        font-size: 1.1em;
+        line-height: 1.8;
+        margin-bottom: 15px;
+      }
+
+      .code-block {
+        background: #f4f4f4;
+        border-left: 4px solid #667eea;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 5px;
+        font-family: "Courier New", monospace;
+        color: #333;
+        overflow-x: auto;
+      }
+
+      .example {
+        background: #f0f7ff;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 15px 0;
+        border-left: 4px solid #764ba2;
+      }
+
+      .output {
+        background: #e8f5e9;
+        padding: 10px 15px;
+        border-radius: 3px;
+        margin-top: 10px;
+        color: #2e7d32;
+        font-weight: bold;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background: #f9f9f9;
+        border-top: 1px solid #ddd;
+      }
+
+      button {
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background: #764ba2;
+      }
+
+      button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .slide-counter {
+        color: #667eea;
+        font-weight: bold;
+        font-size: 1.1em;
+      }
+
+      .subtitle {
+        color: #666;
+        font-size: 1.3em;
+        margin-top: 10px;
+      }
+
+      ul {
+        margin-left: 30px;
+        color: #333;
+      }
+
+      ul li {
+        margin: 10px 0;
+        font-size: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="presentation">
+      <!-- Slide 1: Title -->
+      <div class="slide active">
+        <h1>🎯 JavaScript Scope</h1>
+        <p class="subtitle">Understanding Identifier Scope & Resolution</p>
+        <p style="margin-top: 50px; color: #666; font-size: 1.2em">
+          Learn how JavaScript finds variables in your code
+        </p>
+      </div>
+
+      <!-- Slide 2: What is Scope? -->
+      <div class="slide">
+        <h2>What is Scope?</h2>
+        <p>
+          Scope determines <strong>where variables are accessible</strong> in
+          your code.
+        </p>
+        <p style="margin-top: 30px">JavaScript has two main types:</p>
+        <ul>
+          <li>
+            <strong>Global Scope:</strong> Variables accessible everywhere
+          </li>
+          <li>
+            <strong>Local Scope:</strong> Variables accessible only inside a
+            function
+          </li>
+        </ul>
+      </div>
+
+      <!-- Slide 3: The Lookup Order -->
+      <div class="slide">
+        <h2>How JavaScript Finds Variables</h2>
+        <p>When you use a variable, JavaScript searches in this order:</p>
+        <div class="code-block" style="margin-top: 40px; font-size: 1.2em">
+          1️⃣ Local scope (inside the function) 2️⃣ Global scope (outside the
+          function)
+        </div>
+        <p style="margin-top: 40px">
+          <strong>This is called "Identifier Resolution"</strong>
+        </p>
+      </div>
+
+      <!-- Slide 4: Example 1 - Global Variable -->
+      <div class="slide">
+        <h2>Example 1: Using Global Variables</h2>
+        <div class="code-block">
+          const name = "Alice"; // Global function greet() { console.log(name);
+          // No local name, uses global } greet();
+        </div>
+        <div class="output">Output: "Alice"</div>
+        <p style="margin-top: 30px">
+          <strong>✓</strong> Function found the global variable
+        </p>
+      </div>
+
+      <!-- Slide 5: Example 2 - Local Variable Shadows Global -->
+      <div class="slide">
+        <h2>Example 2: Local Shadows Global</h2>
+        <div class="code-block">
+          const name = "Alice"; // Global function greet() { const name = "Bob";
+          // Local (same name!) console.log(name); // Which one? } greet();
+        </div>
+        <div class="output">Output: "Bob"</div>
+        <p style="margin-top: 30px">
+          <strong>✓</strong> Local variable takes priority (shadows global)
+        </p>
+      </div>
+
+      <!-- Slide 6: Example 3 - Scope Isolation -->
+      <div class="slide">
+        <h2>Example 3: Scope Isolation</h2>
+        <div class="code-block">
+          const color = "red"; // Global function paint() { const color =
+          "blue"; // Local console.log(color); // Output: "blue" } paint();
+          console.log(color); // Output: "red"
+        </div>
+        <div class="output">
+          Function output: "blue"<br />Global output: "red"
+        </div>
+        <p style="margin-top: 30px">
+          <strong>✓</strong> Changes inside function don't affect global
+        </p>
+      </div>
+
+      <!-- Slide 7: The Parameter vs Global Case -->
+      <div class="slide">
+        <h2>The Original Problem</h2>
+        <div class="code-block">
+          const num = 103; // Global function example(num) { // Parameter named
+          num console.log(num); // Uses PARAMETER } example(50);
+        </div>
+        <div class="output">Output: 50</div>
+        <p style="margin-top: 30px">
+          <strong>✓</strong> Parameter shadows the global variable
+        </p>
+      </div>
+
+      <!-- Slide 8: Key Takeaways -->
+      <div class="slide">
+        <h2>Key Takeaways 🎓</h2>
+        <ul>
+          <li>
+            JavaScript searches <strong>inside the function first</strong>
+          </li>
+          <li>If not found, it searches in <strong>global scope</strong></li>
+          <li>
+            Local variables <strong>shadow (hide)</strong> global ones with the
+            same name
+          </li>
+          <li>
+            Function parameters work like <strong>local variables</strong>
+          </li>
+          <li>Changes in local scope <strong>don't affect global</strong></li>
+        </ul>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <span class="slide-counter"
+          ><span id="current">1</span> / <span id="total">8</span></span
+        >
+        <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+      </div>
+    </div>
+
+    <script>
+      let currentSlide = 1;
+      const totalSlides = document.querySelectorAll(".slide").length;
+      document.getElementById("total").textContent = totalSlides;
+
+      function showSlide(n) {
+        const slides = document.querySelectorAll(".slide");
+
+        if (n > totalSlides) currentSlide = totalSlides;
+        if (n < 1) currentSlide = 1;
+
+        slides.forEach((slide) => slide.classList.remove("active"));
+        slides[currentSlide - 1].classList.add("active");
+
+        document.getElementById("current").textContent = currentSlide;
+        document.getElementById("prevBtn").disabled = currentSlide === 1;
+        document.getElementById("nextBtn").disabled =
+          currentSlide === totalSlides;
+      }
+
+      function changeSlide(n) {
+        currentSlide += n;
+        showSlide(currentSlide);
+      }
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") changeSlide(-1);
+        if (e.key === "ArrowRight") changeSlide(1);
+      });
+
+      showSlide(currentSlide);
+    </script>
+  </body>
+</html>
