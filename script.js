@@ -1,5 +1,17 @@
-function ensureQuestion(s) {
-  return s[s.length-1]==="?" ? s:s.padEnd(s.length+1,"?")
-  //return s[s.length - 1];
+function gimme(triplet) {
+  let sortedArray=[...triplet].sort((a,b)=>a-b)
+  let middle=sortedArray[1]
+  return getIndex(triplet,middle)
 }
-console.log(ensureQuestion("kitty"));
+
+
+function getIndex(array,element){
+  let indexPosition=0
+for(let index in array){
+  if(array[index]===element){
+    indexPosition=index
+  }
+}
+return +indexPosition
+}
+
