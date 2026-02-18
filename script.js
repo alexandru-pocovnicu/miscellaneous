@@ -1,7 +1,8 @@
-var OrderPeople = function(people){
-  return people.sort((a,b) =>a.age-b.age ); //complete this function
+function multiples(m, n) {
+  let arr=[]
+  for(let i=1;i<=m;i++){
+    arr.push(n*i)
+  }
+  return arr
 }
-console.log(OrderPeople([ { age: 83, name: 'joel' },
-{ age: 46, name: 'roger' },
-{ age: 99, name: 'vinny' },
-{ age: 26, name: 'don' },]));
+console.log(multiples(3, 5));
