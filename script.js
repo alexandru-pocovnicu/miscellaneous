@@ -1,4 +1,7 @@
-function maxProduct(a) {
-  return a.splice(a.indexOf(Math.max(...a)),1)*Math.max(...a)
+var OrderPeople = function(people){
+  return people.sort((a,b) =>a.age-b.age ); //complete this function
 }
-console.log(maxProduct([2, 6, 3]));
+console.log(OrderPeople([ { age: 83, name: 'joel' },
+{ age: 46, name: 'roger' },
+{ age: 99, name: 'vinny' },
+{ age: 26, name: 'don' },]));
