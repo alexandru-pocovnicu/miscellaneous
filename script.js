@@ -1,14 +1,22 @@
-function testit(s) {
-  if (s.length === 0) return "";
-  let arr = s.split(" ");
-  for(let i=0;i<arr.length;i++){
-    if(arr[i].length===1){
-     arr[i]= arr[i].toUpperCase()
-    }else{
-      arr[i]=arr[i].slice(0,arr[i].length-1)+ arr[i][arr[i].length-1].toUpperCase()
+function twistedSum(n) {
+  let sum = 0;
+  for (let i = 0; i <= n; i++) {
+    if (n > 9) {
+      let arr = String(i).split("");
+
+      let addedI = arr.reduce((a, b) =>+a + Number(b),0);
+      
+      
+      sum = sum + addedI;
+    } else {
+      sum = sum + i;
     }
   }
-  return arr.join(" ")
+  return sum;
 }
-console.log(testit("ab b c"));
+console.log(twistedSum(12));
 
+function over9(n) {
+  if (n > 9) return true;
+  return false;
+}
