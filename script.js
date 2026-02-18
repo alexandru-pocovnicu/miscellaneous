@@ -1,8 +1,14 @@
-function multiples(m, n) {
-  let arr=[]
-  for(let i=1;i<=m;i++){
-    arr.push(n*i)
+function testit(s) {
+  if (s.length === 0) return "";
+  let arr = s.split(" ");
+  for(let i=0;i<arr.length;i++){
+    if(arr[i].length===1){
+     arr[i]= arr[i].toUpperCase()
+    }else{
+      arr[i]=arr[i].slice(0,arr[i].length-1)+ arr[i][arr[i].length-1].toUpperCase()
+    }
   }
-  return arr
+  return arr.join(" ")
 }
-console.log(multiples(3, 5));
+console.log(testit("ab b c"));
+
