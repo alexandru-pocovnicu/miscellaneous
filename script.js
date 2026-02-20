@@ -1,45 +1,33 @@
-const whosOnline = (friends) => {
-  let obj = {};
-  ;
-  for (let elem of friends) {
-    if (elem.status === "online" && elem.lastActivity <= 10) {
-      if(!obj.online){
-        obj.online=[]
-      }
-      obj.online.push(elem.username)
+function getSocks(name, socks) {
+ if(name==="Punky"){
+  return punkySocks(socks)
+ }
+ return henrySocks(socks)
+}
+console.log(getSocks("Punky", ["pink", "pink" ,"pink"]));
+
+function punkySocks(socks){
+  let arr=[]
+for(let i=0;i<socks.length;i++){
+  if(socks[i]!==socks[i+1]){
+    if(arr.length<2){
+    arr.push(socks[i],socks[i+1])
     }
-    if (elem.status === "online" && elem.lastActivity > 10) {
-      if(!obj.away){
-        obj.away=[]
-      }
-      obj.away.push(elem.username)
-    }
-    if (elem.status === "offline") {
-       if (!obj.offline) {
-         obj.offline = [];
-       }
-       obj.offline.push(elem.username);
-    }
+  }else if(socks.every(x=>x===socks[i])){
+    return arr
   }
-  
-  return obj;
-};
-console.log(
-  whosOnline([
-    {
-      username: "David",
-      status: "online",
-      lastActivity: 10,
-    },
-    {
-      username: "Lucy",
-      status: "offline",
-      lastActivity: 22,
-    },
-    {
-      username: "Bob",
-      status: "online",
-      lastActivity: 4,
-    },
-  ]),
-);
+}
+return arr
+}
+
+function henrySocks(socks){
+  let arr=[]
+  for(let elem of socks){
+    if(socks.indexOf(elem)!==socks.lastIndexOf(elem)){
+      if(arr.length<2){
+      arr.push(socks[socks.indexOf(elem)]);}
+      }
+  }
+  return arr
+}
+//console.log(henrySocks(["red", "blue","yellow", "blue", "green","blue"]));
