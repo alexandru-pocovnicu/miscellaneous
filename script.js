@@ -39,7 +39,7 @@ console.log(
     {
       username: "Bob",
       status: "online",
-      lastActivity: 104,
+      lastActivity: 4,
     },
   ]),
 );
