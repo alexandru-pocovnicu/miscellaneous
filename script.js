@@ -1,5 +1,3 @@
-function flattenAndSort(array) {
-  // Good luck, brave code warrior!
-  return array.flat().sort((a,b)=>a-b)
+function toNumberArray(stringarray) {
+  return stringarray.map(x=>+x)
 }
-console.log(flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]));
