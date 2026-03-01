@@ -1,44 +1,65 @@
-function findOddNames(list) {
-  let name = "";
-  let arrOdd = [];
-  for (let i = 0; i < list.length; i++) {
-    name = list[i].firstName;
-    console.log(name);
+function isLanguageDiverse(list) {
+  if (list.length === 0) return true;
 
-    if (calculateAscii(name) % 2 === 1) {
-      arrOdd.push(list[i]);
-      console.log(arrOdd);
-    }
+  let counts = {};
+  for (let dev of list) {
+    counts[dev.language] = (counts[dev.language] || 0) + 1;
   }
-  return arrOdd;
-}
-console.log(
-  findOddNames([
-    {
-      firstName: "Aba",
-      lastName: "N.",
-      country: "Ghana",
-      continent: "Africa",
-      age: 21,
-      language: "Python",
-    },
-    {
-      firstName: "Aba",
-      lastName: "O.",
-      country: "Israel",
-      continent: "Asia",
-      age: 39,
-      language: "Java",
-    },
-  ]),
-);
 
-function calculateAscii(name) {
-  let sum = 0;
-  for (let i = 0; i < name.length; i++) {
-    sum += name.charCodeAt(i);
-  }
-  return sum;
-}
+  let values = Object.values(counts);
+  let min = Math.min(...values);
+  let max = Math.max(...values);
 
-console.log(calculateAscii("Abb"));
+  return max / min <= 2;
+}
+var list1 = [
+  {
+    firstName: "Daniel",
+    lastName: "J.",
+    country: "Aruba",
+    continent: "Americas",
+    age: 42,
+    language: "Python",
+  },
+  {
+    firstName: "Kseniya",
+    lastName: "T.",
+    country: "Belarus",
+    continent: "Europe",
+    age: 22,
+    language: "Ruby",
+  },
+  {
+    firstName: "Sou",
+    lastName: "B.",
+    country: "Japan",
+    continent: "Asia",
+    age: 43,
+    language: "Ruby",
+  },
+  {
+    firstName: "Hanna",
+    lastName: "L.",
+    country: "Hungary",
+    continent: "Europe",
+    age: 95,
+    language: "JavaScript",
+  },
+  {
+    firstName: "Jayden",
+    lastName: "P.",
+    country: "Jamaica",
+    continent: "Americas",
+    age: 18,
+    language: "JavaScript",
+  },
+  {
+    firstName: "Joao",
+    lastName: "D.",
+    country: "Portugal",
+    continent: "Europe",
+    age: 25,
+    language: "JavaScript",
+  },
+];
+console.log(isLanguageDiverse(list1));
