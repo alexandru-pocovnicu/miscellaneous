@@ -1,11 +1,12 @@
-function calculate(a, operator, b) {
-  let operators=["+" , "-", "*",  "/"]
-  if(!operators.includes(operator)|| (operator==="/" && b===0))return null
-  
-    if(operator==="+")return a+b
-    if(operator==="-")return a-b
-    if(operator==="*")return a*b
-  
-  return a/b
+function all(arr, fun) {
+  for (const item of arr) {
+    if (!fun(item)) {
+      return false;
+    }
+  }
+  return true;
 }
-console.log(calculate(2, "*", 2));
+
+console.log(all([2, 4, 6], (n) => n % 2 === 0));
+console.log(all([2, 3, 6], (n) => n % 2 === 0));
+console.log(all([], (n) => n > 0));
