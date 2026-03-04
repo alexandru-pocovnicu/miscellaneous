@@ -1,12 +1,13 @@
-function all(arr, fun) {
-  for (const item of arr) {
-    if (!fun(item)) {
-      return false;
+function change(str) {
+  let string=str.toLowerCase()
+  let arr= new Array(26).fill(0)
+  let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  for(let i in string){
+    if(alphabet.includes(string[i])){
+      let index=alphabet.indexOf(string[i])
+      arr[index]=1
     }
   }
-  return true;
+  return arr.join("")
 }
-
-console.log(all([2, 4, 6], (n) => n % 2 === 0));
-console.log(all([2, 3, 6], (n) => n % 2 === 0));
-console.log(all([], (n) => n > 0));
+console.log(change("Abc e  $$  z"));
