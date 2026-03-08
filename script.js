@@ -1,9 +1,5 @@
-function adjacentElementsProduct(array) {
-  let newArray=[]
-
-    newArray=array.map((elem,index)=>elem*array[index+1])
-  
-  return newArray.sort((a,b)=>b-a)[0]
+function addedChar(s1, s2) {
+  let s11 = [...s1].sort();
+  let s22 = [...s2].sort();
+  return s22.find((el, i) => el !== s11[i]);
 }
-console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48]));
-
