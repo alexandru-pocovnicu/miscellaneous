@@ -1,6 +1,10 @@
-function solve(arr) {
- let reverseArr=arr.reverse()
- let set=new Set(reverseArr)
-  return [...set].reverse()
+function fiveLine(s) {
+ let trimmedS= s.trim();
+ let arr=[]
+ for(let i=1;i<=5;i++){
+  arr.push(trimmedS.repeat(i))
+ }
+
+ return arr.join("\n")
 }
-console.log(solve([1,5,9,1,7]));
+console.log(fiveLine("  a"));
