@@ -1,10 +1,10 @@
-function fiveLine(s) {
- let trimmedS= s.trim();
- let arr=[]
- for(let i=1;i<=5;i++){
-  arr.push(trimmedS.repeat(i))
- }
-
- return arr.join("\n")
+function firstToLast(str, c) {
+  if(![...str].includes(c))return -1
+  return str.lastIndexOf(c)-str.indexOf(c)
 }
-console.log(fiveLine("  a"));
+console.log(
+  firstToLast(
+    "lupapijjneuvrmgtftcmhgvmamqciliuitrcqdacvrwrifzjfzrfezlveu",
+    "y"
+  ),
+);
