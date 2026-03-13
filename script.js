@@ -1,34 +1,6 @@
-function peakAndValley(arr) {
-  let newArr = [];
- 
- for(let i=3;i<=arr.length-4;i++){
-  if (
-    arr[i] > arr[i - 1] &&
-    arr[i] > arr[i - 2] &&
-    arr[i] > arr[i - 3] &&
-    arr[i] > arr[i + 1] &&
-    arr[i] > arr[i + 2] &&
-    arr[i] > arr[i +3]
-  ){
-    newArr.push(arr[i])
-  }
-  else if (
-    arr[i] < arr[i - 1] &&
-    arr[i] < arr[i - 2] &&
-    arr[i] < arr[i - 3] &&
-    arr[i] < arr[i + 1] &&
-    arr[i] < arr[i + 2] &&
-    arr[i] < arr[i + 3]
-  ) {
-    newArr.push(arr[i]);
-  }
+function solve(arr) {
+ let reverseArr=arr.reverse()
+ let set=new Set(reverseArr)
+  return [...set].reverse()
 }
-    return newArr;
- }
-
-
-
-
-
-
-
+console.log(solve([1,5,9,1,7]));
