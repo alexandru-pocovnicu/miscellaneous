@@ -1,11 +1,16 @@
-function howManySmaller(arr, n) {
-  let newArr=arr.map(x=>+x.toFixed(2))
-  let count=0
-  for(let elem of newArr){
-    if(elem<n){
-      count++
+function seqToOne(n) {
+  let arr = [];
+  if(n===0)return [0,1]
+  if (n < 0) {
+    for (let i = n; i <= 1; i++) {
+      arr.push(i);
+    }
+  }else{
+    for (let i = n; i >=1; i--) {
+      arr.push(i);
     }
   }
-  return count
+
+  return arr;
 }
-console.log(howManySmaller([1.234, 1.235, 1.228],1.24));
+console.log(seqToOne(-1));

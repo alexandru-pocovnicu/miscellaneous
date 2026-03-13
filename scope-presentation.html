@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript Scope & Identifier Resolution</title>
+    <title>Modular Programming vs Monolithic Functions</title>
     <style>
       * {
         margin: 0;
@@ -80,6 +80,14 @@
         font-family: "Courier New", monospace;
         color: #333;
         overflow-x: auto;
+        white-space: pre-wrap;
+      }
+
+      .compare {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 20px;
       }
 
       .example {
@@ -153,126 +161,128 @@
   </head>
   <body>
     <div class="presentation">
-      <!-- Slide 1: Title -->
       <div class="slide active">
-        <h1>🎯 JavaScript Scope</h1>
-        <p class="subtitle">Understanding Identifier Scope & Resolution</p>
-        <p style="margin-top: 50px; color: #666; font-size: 1.2em">
-          Learn how JavaScript finds variables in your code
+        <h1>🧩 Modular Programming</h1>
+        <p class="subtitle">Small functions with one clear job</p>
+        <p style="margin-top: 40px; color: #666; font-size: 1.2em">
+          Why it is usually better than one big function
         </p>
       </div>
 
-      <!-- Slide 2: What is Scope? -->
       <div class="slide">
-        <h2>What is Scope?</h2>
+        <h2>Two Styles</h2>
+        <div class="compare">
+          <div class="example">
+            <p><strong>Monolithic style</strong></p>
+            <p>One large function does everything end-to-end.</p>
+          </div>
+          <div class="example">
+            <p><strong>Modular style</strong></p>
+            <p>Many small functions each do one thing.</p>
+          </div>
+        </div>
+        <p style="margin-top: 20px">
+          Modular style follows the
+          <strong>Single Responsibility Principle</strong>.
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2>Why Big Functions Become Painful</h2>
+        <ul>
+          <li>Harder to read and understand quickly</li>
+          <li>Harder to test because everything is coupled together</li>
+          <li>Harder to debug because many concerns mix in one place</li>
+          <li>Harder to reuse only one piece of logic</li>
+          <li>Riskier to change without breaking unrelated behavior</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h2>Benefits of Modular Programming</h2>
+        <ul>
+          <li><strong>Readability:</strong> each function is easier to scan</li>
+          <li><strong>Testability:</strong> unit-test each small function</li>
+          <li>
+            <strong>Reusability:</strong> reuse helpers in multiple places
+          </li>
+          <li><strong>Maintainability:</strong> change one part safely</li>
+          <li>
+            <strong>Collaboration:</strong> teammates can work in parallel
+          </li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h2>Example: One Big Function</h2>
+        <div class="code-block">
+          function checkout(cart, user, couponCode) { let subtotal = 0; for
+          (const item of cart) { subtotal += item.price * item.qty; } let
+          discount = 0; if (couponCode === "SAVE10") discount = subtotal * 0.1;
+          const taxed = (subtotal - discount) * 1.2; const shipping = taxed >
+          100 ? 0 : 8; const total = taxed + shipping; return { userId: user.id,
+          subtotal, discount, shipping, total }; }
+        </div>
+      </div>
+
+      <div class="slide">
+        <h2>Same Logic, Modular Version</h2>
+        <div class="code-block">
+          function calculateSubtotal(cart) { return cart.reduce((sum, item) =>
+          sum + item.price * item.qty, 0); } function
+          calculateDiscount(subtotal, couponCode) { return couponCode ===
+          "SAVE10" ? subtotal * 0.1 : 0; } function
+          calculateShipping(amountAfterTax) { return amountAfterTax > 100 ? 0 :
+          8; } function checkout(cart, user, couponCode) { const subtotal =
+          calculateSubtotal(cart); const discount = calculateDiscount(subtotal,
+          couponCode); const amountAfterTax = (subtotal - discount) * 1.2; const
+          shipping = calculateShipping(amountAfterTax); const total =
+          amountAfterTax + shipping; return { userId: user.id, subtotal,
+          discount, shipping, total }; }
+        </div>
+      </div>
+
+      <div class="slide">
+        <h2>Testing Becomes Easier</h2>
+        <div class="code-block">
+          // test calculateDiscount in isolation expect(calculateDiscount(200,
+          "SAVE10")).toBe(20); expect(calculateDiscount(200, "NONE")).toBe(0);
+          // test shipping rules separately
+          expect(calculateShipping(120)).toBe(0);
+          expect(calculateShipping(80)).toBe(8);
+        </div>
+        <div class="output">Small functions = focused, fast unit tests ✅</div>
+      </div>
+
+      <div class="slide">
+        <h2>When to Keep It Simple</h2>
+        <p>Modular does not mean splitting everything into tiny fragments.</p>
+        <ul>
+          <li>If logic is truly simple, one short function is fine</li>
+          <li>Split when responsibilities start mixing</li>
+          <li>
+            A good rule: each function should have one clear reason to change
+          </li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h2>Key Takeaway 🎓</h2>
         <p>
-          Scope determines <strong>where variables are accessible</strong> in
-          your code.
+          The style you asked about is commonly called
+          <strong>modular programming</strong> (or
+          <strong>functional decomposition</strong>).
         </p>
-        <p style="margin-top: 30px">JavaScript has two main types:</p>
-        <ul>
-          <li>
-            <strong>Global Scope:</strong> Variables accessible everywhere
-          </li>
-          <li>
-            <strong>Local Scope:</strong> Variables accessible only inside a
-            function
-          </li>
-        </ul>
-      </div>
-
-      <!-- Slide 3: The Lookup Order -->
-      <div class="slide">
-        <h2>How JavaScript Finds Variables</h2>
-        <p>When you use a variable, JavaScript searches in this order:</p>
-        <div class="code-block" style="margin-top: 40px; font-size: 1.2em">
-          1️⃣ Local scope (inside the function) 2️⃣ Global scope (outside the
-          function)
-        </div>
-        <p style="margin-top: 40px">
-          <strong>This is called "Identifier Resolution"</strong>
+        <p>
+          Compared to one big function, it usually gives cleaner code, better
+          tests, safer changes, and easier teamwork.
         </p>
       </div>
 
-      <!-- Slide 4: Example 1 - Global Variable -->
-      <div class="slide">
-        <h2>Example 1: Using Global Variables</h2>
-        <div class="code-block">
-          const name = "Alice"; // Global function greet() { console.log(name);
-          // No local name, uses global } greet();
-        </div>
-        <div class="output">Output: "Alice"</div>
-        <p style="margin-top: 30px">
-          <strong>✓</strong> Function found the global variable
-        </p>
-      </div>
-
-      <!-- Slide 5: Example 2 - Local Variable Shadows Global -->
-      <div class="slide">
-        <h2>Example 2: Local Shadows Global</h2>
-        <div class="code-block">
-          const name = "Alice"; // Global function greet() { const name = "Bob";
-          // Local (same name!) console.log(name); // Which one? } greet();
-        </div>
-        <div class="output">Output: "Bob"</div>
-        <p style="margin-top: 30px">
-          <strong>✓</strong> Local variable takes priority (shadows global)
-        </p>
-      </div>
-
-      <!-- Slide 6: Example 3 - Scope Isolation -->
-      <div class="slide">
-        <h2>Example 3: Scope Isolation</h2>
-        <div class="code-block">
-          const color = "red"; // Global function paint() { const color =
-          "blue"; // Local console.log(color); // Output: "blue" } paint();
-          console.log(color); // Output: "red"
-        </div>
-        <div class="output">
-          Function output: "blue"<br />Global output: "red"
-        </div>
-        <p style="margin-top: 30px">
-          <strong>✓</strong> Changes inside function don't affect global
-        </p>
-      </div>
-
-      <!-- Slide 7: The Parameter vs Global Case -->
-      <div class="slide">
-        <h2>The Original Problem</h2>
-        <div class="code-block">
-          const num = 103; // Global function example(num) { // Parameter named
-          num console.log(num); // Uses PARAMETER } example(50);
-        </div>
-        <div class="output">Output: 50</div>
-        <p style="margin-top: 30px">
-          <strong>✓</strong> Parameter shadows the global variable
-        </p>
-      </div>
-
-      <!-- Slide 8: Key Takeaways -->
-      <div class="slide">
-        <h2>Key Takeaways 🎓</h2>
-        <ul>
-          <li>
-            JavaScript searches <strong>inside the function first</strong>
-          </li>
-          <li>If not found, it searches in <strong>global scope</strong></li>
-          <li>
-            Local variables <strong>shadow (hide)</strong> global ones with the
-            same name
-          </li>
-          <li>
-            Function parameters work like <strong>local variables</strong>
-          </li>
-          <li>Changes in local scope <strong>don't affect global</strong></li>
-        </ul>
-      </div>
-
-      <!-- Controls -->
       <div class="controls">
         <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
         <span class="slide-counter"
-          ><span id="current">1</span> / <span id="total">8</span></span
+          ><span id="current">1</span> / <span id="total">9</span></span
         >
         <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
       </div>
@@ -303,7 +313,6 @@
         showSlide(currentSlide);
       }
 
-      // Keyboard navigation
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowLeft") changeSlide(-1);
         if (e.key === "ArrowRight") changeSlide(1);
