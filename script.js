@@ -1,16 +1,7 @@
-function seqToOne(n) {
-  let arr = [];
-  if(n===0)return [0,1]
-  if (n < 0) {
-    for (let i = n; i <= 1; i++) {
-      arr.push(i);
-    }
-  }else{
-    for (let i = n; i >=1; i--) {
-      arr.push(i);
-    }
-  }
-
-  return arr;
+function alienLanguage(str) {
+  let capitalLetters=str.toUpperCase()
+  let arr=capitalLetters.split(" ")
+  
+  return arr.map(x=>x.slice(0,-1)+x[x.length-1].toLowerCase()).join(" ")
 }
-console.log(seqToOne(-1));
+console.log(alienLanguage("My name is John"));
