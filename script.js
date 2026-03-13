@@ -1,13 +1,12 @@
-function ballCollector(detritus) {
-let sum=0
-let object={}
-for(let i=0;i<detritus.length;i++){
-  if(detritus[i]===58){
-    sum +=detritus[i]
-    object.weight=sum
-  }
+function distancesFromAverage(arr) {
+  let average = findAverage(arr);
+  return differenceFromAverage(arr, average).map((a) => Number(a.toFixed(2)));
 }
-if(!detritus.includes(58)) object.weight=0
-return object
+
+function findAverage(arr) {
+  return arr.reduce((a, b) => a + b) / arr.length;
 }
-console.log(ballCollector([59, 60, 60]));
+
+function differenceFromAverage(arr, average) {
+  return arr.map((a) => average - a);
+}
