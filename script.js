@@ -1,7 +1,18 @@
-function alienLanguage(str) {
-  let capitalLetters=str.toUpperCase()
-  let arr=capitalLetters.split(" ")
-  
-  return arr.map(x=>x.slice(0,-1)+x[x.length-1].toLowerCase()).join(" ")
+function decode(message) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  const reversedAlphabet = [...alphabet].reverse();
+  let newMessage = "";
+  for (let i = 0; i < message.length; i++) {
+    let elem = message[i];
+
+    let index = alphabet.indexOf(elem);
+    if(index!==-1){
+    newMessage += reversedAlphabet[index];
+    }
+    if(index===-1){
+      newMessage+=elem
+    }
+  }
+  return newMessage;
 }
-console.log(alienLanguage("My name is John"));
+console.log(decode("srsvoolr slkv mlylwb wvxlwvh gsrh nvhhztv"));
