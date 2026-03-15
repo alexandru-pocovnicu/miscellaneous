@@ -1,13 +1,11 @@
-function cocknify(str) {
-//   let arr = str.split(" ");
-//   let newElem = "";
-//   for (let i = 0; i < arr.length; i++) {
-//     if(arr[i].toLowerCase().startsWith("h")){
-//       arr[i]= arr[i].replace(arr[i][0], "`");
-        
-        
-//     }
-//   }
-  return str.replace(/\bh/gi,"`")
+function yourFutureCareer() {
+    let career=Math.random()
+  if (career <= 0.32) {
+    return "FrontEnd Developer";
+  } else if (career <= 0.65) {
+    return "BackEnd Developer";
+  } else {
+    return "Full-Stack Developer";
+  }
 }
-console.log(cocknify("Hello there honey"));
+console.log(yourFutureCareer(-20));
