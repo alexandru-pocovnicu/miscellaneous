@@ -1,18 +1,13 @@
-function decode(message) {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-  const reversedAlphabet = [...alphabet].reverse();
-  let newMessage = "";
-  for (let i = 0; i < message.length; i++) {
-    let elem = message[i];
-
-    let index = alphabet.indexOf(elem);
-    if(index!==-1){
-    newMessage += reversedAlphabet[index];
-    }
-    if(index===-1){
-      newMessage+=elem
-    }
-  }
-  return newMessage;
+function cocknify(str) {
+//   let arr = str.split(" ");
+//   let newElem = "";
+//   for (let i = 0; i < arr.length; i++) {
+//     if(arr[i].toLowerCase().startsWith("h")){
+//       arr[i]= arr[i].replace(arr[i][0], "`");
+        
+        
+//     }
+//   }
+  return str.replace(/\bh/gi,"`")
 }
-console.log(decode("srsvoolr slkv mlylwb wvxlwvh gsrh nvhhztv"));
+console.log(cocknify("Hello there honey"));
