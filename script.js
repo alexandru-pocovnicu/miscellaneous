@@ -5,12 +5,10 @@ const film = {
   certificate: "15",
   duration: 112,
 };
-console.log(film);
-const filmCard=document.createElement("section")
-const title=document.createElement("h1")
-const director=document.createElement("p")
-director.textContent=film.director
-title.textContent=film.title
-filmCard.append(title,director)
-const bodyEl=document.querySelector("body")
-bodyEl.append(filmCard)
+
+const filmCard = document.getElementById("film-card").content.cloneNode(true);
+
+
+filmCard.querySelector("h3").textContent=film.title
+filmCard.querySelector("p").textContent = film.director;
+document.body.append(filmCard)
