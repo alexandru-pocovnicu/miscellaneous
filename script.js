@@ -1,8 +1,10 @@
-function tripleTrouble(one, two, three) {
-  let str=""
-  for(let i=0;i<one.length;i++){
-    str+=one[i]+two[i]+three[i]
-  }
-  return str
-}
 
+function squaresOnly(a) {
+  let y = [];
+  for (let x of a) {
+    if (Number.isInteger(Math.sqrt(x))) {
+      y.push(x);
+    }
+  }
+  return y;
+}
