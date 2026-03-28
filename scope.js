@@ -1,5 +1,8 @@
-function whoIsPaying(name) {
-  if(name.length>2)return [name,name.slice(0,2)]
-return [name]
+function monkeyCount(n) {
+  let arr=[]
+ for(let i=1;i<=n;i++){
+arr.push(i)
+ }
+ return arr
 }
-console.log(whoIsPaying("Mexi"));
+console.log(monkeyCount(4));
