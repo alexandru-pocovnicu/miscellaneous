@@ -1,7 +1,5 @@
-function grader(score) {
-  if(score>1||score<0.6)return "F"
-  if(score>=0.9)return "A"
-  if(score>=0.8)return "B"
-  if(score>=0.7)return "C"
-  return "D"
+function whoIsPaying(name) {
+  if(name.length>2)return [name,name.slice(0,2)]
+return [name]
 }
+console.log(whoIsPaying("Mexi"));
