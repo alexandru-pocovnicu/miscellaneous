@@ -1,8 +1,7 @@
-function monkeyCount(n) {
-  let arr=[]
- for(let i=1;i<=n;i++){
-arr.push(i)
- }
- return arr
+function guessBlue(blueStart, redStart, bluePulled, redPulled) {
+  const blueRemaining=blueStart-bluePulled
+  const redRemaining=redStart-redPulled
+  const bothColorsRemaining=blueRemaining+redRemaining
+  const probability=blueRemaining/bothColorsRemaining
+  return probability
 }
-console.log(monkeyCount(4));
