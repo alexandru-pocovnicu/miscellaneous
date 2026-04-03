@@ -1,7 +1,6 @@
-function guessBlue(blueStart, redStart, bluePulled, redPulled) {
-  const blueRemaining=blueStart-bluePulled
-  const redRemaining=redStart-redPulled
-  const bothColorsRemaining=blueRemaining+redRemaining
-  const probability=blueRemaining/bothColorsRemaining
-  return probability
-}
+const cannonsReady = (gunners) => {
+return Object.values(gunners).every((value) => value === "aye") ? 'Fire!':'Shiver me timbers'
+};
+console.log(
+  cannonsReady({ Mike: "aye", Joe: "aye", Johnson: "aye", Peter: "nay" }),
+);
